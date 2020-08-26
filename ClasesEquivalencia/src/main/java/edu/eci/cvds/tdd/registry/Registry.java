@@ -7,7 +7,11 @@ public class Registry {
 	private boolean valid = true;
 	private boolean duplicate = false;
 	private ArrayList<Person> personas = new ArrayList<Person>();
-	
+	/**
+	*Verifica que la persona tenga los atributosc correctos
+	*@param p persona
+	*@return RegisterResult el resultado del registro
+	*/
     public RegisterResult registerVoter(Person p) {
 		for(int i = 0; i < personas.size(); i++){
 			if(p.getId() == personas.get(i).getId()){
@@ -19,11 +23,11 @@ public class Registry {
 			return RegisterResult.DUPLICATED;
 		}
 		
-		if(!p.getGender().equals("MALE") || !p.getGender().equals("FEMALE") || !p.getGender().equals("UNIDENTIFIED")) {
+		if(p.getGender().equals(Gender.UNIDENTIFIED)) {
 			valid = false;
 			return RegisterResult.INVALID_GENRE;
 		}
-		if(!p.isAlive){
+		if(!p.isAlive()){
 			valid = false;
 			return RegisterResult.DEAD;
 		}

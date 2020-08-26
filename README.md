@@ -1,4 +1,4 @@
 ## INTEGRANTES
 
-Juan Alayon\
+Juan Alayon
 Jose Castro
